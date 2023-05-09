@@ -1,0 +1,13 @@
+127.0.0.1       localhost
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+172.17.10.162 dvp-test.digivalet.com dct-test.digivalet.com
+192.168.0.55 dmonitor.digivalet.com
+192.168.0.66 dvgit.digivalet.com
+172.16.254.80  dvu.digivalet.com
+172.17.37.35    das.addressblvd.digivalet.in das
+172.17.37.35    analytics.addressblvd.digivalet.in analytics
+undefined       undefined nasdbl
+172.17.37.35     red dmon backup bacula
+undefined       undefined nasbackup
+undefined       undefined nasdbl nasdb
+172.17.1.10     lmc.digivalet.com lmc

@@ -1,0 +1,25 @@
+127.0.0.1	localhost
+127.0.1.1	IshikaA-CD256
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+172.17.37.35  standard-45654
+172.22.1.17  standard-45653
+172.22.1.12  standard-45652
+172.22.1.246  standard-50001
+172.22.1.24  premium-50002
+172.22.1.103  standard-50003
+172.22.1.104  standard-50004
+172.22.1.105  standard-50005
+172.22.1.106  standard-50006
+172.22.1.108  standard-50007
+172.22.1.109  standard-50008
+172.22.1.221  standard-50009
+172.22.2.221  premium-7001
+172.22.2.222  bedroom-7001
+172.22.2.223  bathroom-7001
+172.22.40.10  living-7001
