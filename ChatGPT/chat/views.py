@@ -28,7 +28,9 @@ class HotelNameView(APIView):
         print(generated_text)
         return Response({'response': generated_text})
     
-
-
 def render_index(request):
     return render(request, 'index.html')
+
+class ProcessView(APIView):
+    def get(self, request):
+        return render(request, 'process.html')
