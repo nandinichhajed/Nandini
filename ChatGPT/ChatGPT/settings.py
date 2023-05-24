@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'chat.apps.ChatConfig',
-    'tasks.apps.ChatConfig',
+    'tasks.apps.TasksConfig',
     'rest_framework',
 ]
 
