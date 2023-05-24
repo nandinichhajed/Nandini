@@ -16,4 +16,9 @@ class Hotel(models.Model):
     def __str__(self):
         return self.name
     
+class Processes(models.Model):
+    name = models.CharField(max_length=50)
+    img_url = models.CharField(max_length=500, blank=True, null=True)
     
+    def __str__(self):
+        return self.name

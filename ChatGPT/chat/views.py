@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from .serializers import HotelNameSerializer
 from django.shortcuts import render
+from .models import *
 import openai
 import os
 
@@ -31,11 +32,13 @@ class HotelNameView(APIView):
 
 
 def render_index(request):
-    return render(request, 'index.html')
+    data = Hotel.objects.all() 
+    return render(request, 'index.html', {'data': data})
 
 class ProcessView(APIView):
     def get(self, request):
-        return render(request, 'process.html')
+        data = Processes.objects.all() 
+        return render(request, 'process.html', {'data': data})
     
 class PromptView(APIView):
     def get(self, request):
