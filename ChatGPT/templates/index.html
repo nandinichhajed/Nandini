@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
+{% load static %}  <!-- Load the static tag -->
+
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
+
 <div class="py-6 sm:py-8 lg:py-12">
     <div class="mx-auto max-w-screen-2xl px-4 md:px-8">
         <div class="py-6 sm:py-8 lg:py-12">
@@ -31,7 +34,9 @@
                     <a
                     href="./process.html"
                     class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96"
-                    onclick="executePrompt(event)"
+                    onclick="executePrompt(1)"
+                    id="card1"
+
                 >
                     <img
                         src="https://images.unsplash.com/photo-1593508512255-86ab42a8e620?auto=format&q=75&fit=crop&w=600"
@@ -49,33 +54,15 @@
                         <h2 class="mb-2 text-xl font-semibold text-white transition duration-100">New trends in Tech</h2>
                         <span class="font-semibold text-indigo-300">Read more</span>
                     </div>
-                </a>
-                
-                <script>
-                    function executePrompt(event) {
-                        event.preventDefault();
-                
-                        // Send a POST request to the Django API endpoint
-                        fetch('/hotelName/', {
-                            method: 'POST',
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            // Handle the response from the API
-                            console.log(data.response);  // Example: Print the generated hotel name
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
-                    }
-                </script>
-                
+                    </a>
                     <!-- article - end -->
         
                     <!-- article - start -->
                     <a
                         href="./process.html"
                         class="group relative flex h-48 flex-col overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-64 xl:h-96"
+                        onclick="executePrompt(2)"
+                        id="card2"
                     >
                         <img
                             src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&q=75&fit=crop&w=600"
@@ -103,7 +90,9 @@
                             >
                         </div>
                     </a>
+
                     <!-- article - end -->
+
                 </main>
                 <!-- Cards End -->
             </div>
