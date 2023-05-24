@@ -36,3 +36,7 @@ def render_index(request):
 class ProcessView(APIView):
     def get(self, request):
         return render(request, 'process.html')
+    
+class PromptView(APIView):
+    def get(self, request):
+        return render(request, 'prompt.html')

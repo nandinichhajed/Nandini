@@ -25,3 +25,7 @@ function executePrompt(cardId) {
             console.error('Error:', error);
         });
 }
+
+function redirectToPrompt() {
+    window.location.href = "prompt/";
+}
