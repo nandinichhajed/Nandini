@@ -19,7 +19,6 @@ function executePrompt(cardId) {
         .then(data => {
             // Handle the response from the API
             console.log(data.response);
-            window.location.href = "process/";
         })
         .catch(error => {
             console.error('Error:', error);
