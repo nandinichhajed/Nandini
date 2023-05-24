@@ -32,3 +32,7 @@ class HotelNameView(APIView):
 
 def render_index(request):
     return render(request, 'index.html')
+
+class ProcessView(APIView):
+    def get(self, request):
+        return render(request, 'process.html')
