@@ -11,9 +11,8 @@ openai.api_key = os.environ['openai.api_key']
 class HotelNameView(APIView):
     def post(self, request):
         
-        prompt = "hello how are you?"
+        prompt = request.data.get('prompt', '')
         print(prompt)
-
         system_prompt = f'{{"role": "system", "content": "{prompt}"}}'
 
         response = openai.ChatCompletion.create(
