@@ -1,6 +1,6 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .serializers import HotelNameSerializer
+from .serializers import *
 from django.shortcuts import render
 from .models import *
 import openai
@@ -22,14 +22,18 @@ class HotelNameView(APIView):
                 {"role": "system", "content": prompt}
             ],
             temperature = 0.7,
-            
         )
 
         generated_text = response.choices[0].message.content.strip()
         print(generated_text)
+        
+        chat = Chat.objects.create(
+            text=prompt,
+            gpt=generated_text
+        )
+        
         return Response({'response': generated_text})
     
-
 
 def render_index(request):
     data = Hotel.objects.all() 
