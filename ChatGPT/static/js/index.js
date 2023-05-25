@@ -3,7 +3,7 @@ function executePrompt(cardId) {
     let prompt = "";
 
     if (cardId === 1) {
-        prompt = "Hello ChatGPT";
+        prompt = "You are a hotel assistant for Wynn Las Vegas and answer all the queries asked by guests. Your task is to assist the guest and make their stay luxurious and memorable, while constantly asking questions before you answer to better grasp what the guest is looking for. Add a welcome letter of for the guest in every new conversation.";
     } else if (cardId === 2) {
         prompt = "Hello I am nandini";
     }
@@ -45,7 +45,7 @@ function sendDataToProcessPrompt() {
     xhr.onload = function () {
       if (xhr.status === 200) {
         console.log(xhr.responseText);
-        window.location.href = "/";
+        // window.location.href = "/";
       } else {
         console.error("Error:", xhr.status);
       }

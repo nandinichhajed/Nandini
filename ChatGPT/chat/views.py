@@ -10,59 +10,60 @@ from django.http import JsonResponse
 
 openai.api_key = os.environ['openai.api_key']
 
+messages = []
 
 class HotelNameView(APIView):
     def post(self, request):
-        
         prompt = request.data.get('prompt', '')
         print(prompt)
-        system_prompt = f'{{"role": "system", "content": "{prompt}"}}'
+
+        messages.append({"role": "system", "content": f"{prompt}"})
 
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": prompt}
-            ],
-            temperature = 0.7,
+            messages=messages,
+            temperature=0.7,
         )
 
         generated_text = response.choices[0].message.content.strip()
         print(generated_text)
-        
+
         chat = Chat.objects.create(
             text=prompt,
             gpt=generated_text
         )
-        
+
         return Response({'response': generated_text})
-    
-    
-    
+
+
 def processPrompt(request):
     if request.method == 'POST':
         user_prompt = request.POST.get('message', '')
         print(user_prompt)
 
+        messages.append({"role": "user", "content": f"{user_prompt}"})
+
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=[
-                {"role": "system", "content": "system message"},
-                {"role": "user", "content": user_prompt}
-            ],
+            messages=messages,
             temperature=0.7,
         )
 
         assistant_response = response.choices[0].message.content.strip()
         print(assistant_response)
-        
+
+        messages.append({"role": "assistant", "content": f"{assistant_response}"})
+
         data = Promts.objects.create(
             user_prompt=user_prompt,
             assistant_response=assistant_response
         )
-
+        print(messages)
         return JsonResponse({'response': assistant_response})
 
     return render(request, 'prompt.html')
+
+
 
 
 
