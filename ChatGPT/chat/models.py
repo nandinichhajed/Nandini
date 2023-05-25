@@ -22,3 +22,11 @@ class Processes(models.Model):
     
     def __str__(self):
         return self.name
+
+class Promts(models.Model):
+    user_prompt = models.CharField(max_length=500)
+    assistant_response = models.CharField(max_length=17000)
+    date = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    
+    def __str__(self):
+        return self.user_prompt

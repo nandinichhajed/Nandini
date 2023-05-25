@@ -5,4 +5,4 @@ from .models import *
 admin.site.register(Chat)
 admin.site.register(Hotel)
 admin.site.register(Processes)
-
+admin.site.register(Promts)

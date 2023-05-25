@@ -54,6 +54,11 @@ def processPrompt(request):
 
         assistant_response = response.choices[0].message.content.strip()
         print(assistant_response)
+        
+        data = Promts.objects.create(
+            user_prompt=user_prompt,
+            assistant_response=assistant_response
+        )
 
         return JsonResponse({'response': assistant_response})
 
