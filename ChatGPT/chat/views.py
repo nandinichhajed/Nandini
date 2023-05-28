@@ -38,6 +38,7 @@ class HotelNameView(APIView):
 
 def processPrompt(request):
     if request.method == 'POST':
+        
         user_prompt = request.POST.get('message', '')
         print(user_prompt)
 
@@ -54,14 +55,16 @@ def processPrompt(request):
 
         messages.append({"role": "assistant", "content": f"{assistant_response}"})
 
-        data = Promts.objects.create(
+        contxt = Promts.objects.create(
             user_prompt=user_prompt,
             assistant_response=assistant_response
         )
         print(messages)
         return JsonResponse({'response': assistant_response})
-
-    return render(request, 'prompt.html')
+    
+    # latest_response = Promts.objects.order_by('-id').first()  # Get the latest Promts object
+    contxt = Promts.objects.all()  # Retrieve all Promts objects from the database
+    return render(request, 'prompt.html', {'contxt': contxt})
 
 
 
