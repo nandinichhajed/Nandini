@@ -67,13 +67,9 @@ def processPrompt(request):
     return render(request, 'prompt.html', {'contxt': contxt})
 
 
-
-
-
 def render_index(request):
     data = Hotel.objects.all() 
     return render(request, 'index.html', {'data': data})
-
 
 
 class ProcessView(APIView):

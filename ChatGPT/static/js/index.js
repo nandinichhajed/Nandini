@@ -40,16 +40,26 @@ function sendDataToProcessPrompt() {
   
     xhr.open("POST", "/process/prompt/", true);
   
+    // Set the CSRF token in the request headers
+    xhr.setRequestHeader("X-CSRFToken", getCSRFToken());
+  
     // Define the callback function when the request completes
     xhr.onload = function () {
       if (xhr.status === 200) {
         console.log(xhr.responseText);
         window.location.reload();
-        xhr.send(formData);
-        // window.location.href = "/";
       } else {
         console.error("Error:", xhr.status);
       }
     };
-
-}
+  
+    // Send the request with the form data
+    xhr.send(formData);
+  }
+  
+  // Function to get the CSRF token from the HTML form
+  function getCSRFToken() {
+    var csrfTokenElement = document.getElementsByName("csrfmiddlewaretoken")[0];
+    return csrfTokenElement.value;
+  }
+  
