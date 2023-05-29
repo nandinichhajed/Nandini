@@ -26,10 +26,6 @@ function executePrompt(cardId) {
         });
 }
 
-// function redirectToPrompt() {
-//     window.location.href = "prompt/";
-// }
-
 function sendDataToProcessPrompt(language) {
     var userPrompt = document.getElementsByName("message")[0].value;
 
