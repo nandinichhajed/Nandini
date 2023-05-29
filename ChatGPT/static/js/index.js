@@ -30,11 +30,12 @@ function redirectToPrompt() {
     window.location.href = "prompt/";
 }
 
-function sendDataToProcessPrompt() {
+function sendDataToProcessPrompt(language) {
     var userPrompt = document.getElementsByName("message")[0].value;
   
     var formData = new FormData();
     formData.append("message", userPrompt);
+    formData.append("language", language);
   
     var xhr = new XMLHttpRequest();
   
@@ -56,6 +57,7 @@ function sendDataToProcessPrompt() {
     // Send the request with the form data
     xhr.send(formData);
   }
+  
   
   // Function to get the CSRF token from the HTML form
   function getCSRFToken() {

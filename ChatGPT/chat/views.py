@@ -41,7 +41,11 @@ def processPrompt(request):
         
         user_prompt = request.POST.get('message', '')
         print(user_prompt)
+        
+        language = request.POST.get('language', '')
 
+        user_prompt += f" in {language}"
+            
         messages.append({"role": "user", "content": f"{user_prompt}"})
 
         response = openai.ChatCompletion.create(
