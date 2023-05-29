@@ -30,9 +30,9 @@
                     <div class="border border-gray-300 rounded p-4 mb-4 mt-4">
                         {% if contxt %}
                         <p class="font-bold mb-2">Prompt:</p>
-                        <p class="mb-4">{{ contxt.last.user_prompt }}</p>
+                        <p style="white-space: pre-wrap;" class="mb-4">{{ contxt.last.user_prompt }}</p>
                         <p class="font-bold mb-2">Response:</p>
-                        <p>{{ contxt.last.assistant_response }}</p>
+                        <p style="white-space: pre-wrap;">{{ contxt.last.assistant_response }}</p>
                         {% else %}
                         <p class="text-gray-500">No assistant responses available.</p>
                         {% endif %}
