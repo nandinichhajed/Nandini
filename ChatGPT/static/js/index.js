@@ -68,4 +68,3 @@ function getCSRFToken() {
   var csrfTokenElement = document.getElementsByName("csrfmiddlewaretoken")[0];
   return csrfTokenElement.value;
 }
-  

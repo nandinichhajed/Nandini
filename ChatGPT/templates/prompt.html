@@ -42,20 +42,19 @@
                 </form>
                 
                 <!-- form - end -->
-
-                <div class="mx-auto max-w-screen-md">
+                <div class="mx-auto max-w-screen-md mt-4">
                     {% csrf_token %}
-                    <div class="border border-gray-300 rounded p-4 mb-4">
-                      {% if contxt %}
+                    <div class="border border-gray-300 rounded p-4 mb-4 mt-4">
+                        {% if contxt %}
                         <p class="font-bold mb-2">Prompt:</p>
                         <p class="mb-4">{{ contxt.last.user_prompt }}</p>
                         <p class="font-bold mb-2">Response:</p>
                         <p>{{ contxt.last.assistant_response }}</p>
-                      {% else %}
+                        {% else %}
                         <p class="text-gray-500">No assistant responses available.</p>
-                      {% endif %}
+                        {% endif %}
                     </div>
-                  </div> 
+                </div>
             </div>
         </div>
 {% endblock %}
