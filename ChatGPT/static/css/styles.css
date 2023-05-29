@@ -1,0 +1,34 @@
+.card{
+    background-color: #343541 !important;
+}
+
+/* #chatCard{
+    border: red solid 1px !important;
+} */
+
+.card-body.bg.bg-primary {
+    background-color: #343541 !important;
+    /* border: #D1D5D2 solid 1px !important; */
+}
+
+.card-body.bg.bg-light {
+    background-color: #444654 !important;
+    color: #D1D5D2 !important;
+}
+
+.gpt-blue {
+    color: #31A37F !important;
+}
+
+.submit-button{
+  background-color: #31a37f;
+  border: #31A37F;
+}
+
+.submit-button:hover{
+  background-color: #02c285;
+}
+
+.background{
+  background-color: #000 !important;
+}
