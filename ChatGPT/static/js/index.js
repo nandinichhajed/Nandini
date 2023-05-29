@@ -32,36 +32,40 @@ function redirectToPrompt() {
 
 function sendDataToProcessPrompt(language) {
     var userPrompt = document.getElementsByName("message")[0].value;
-  
+
+    // Check if a language is provided and modify the prompt accordingly
+    if (language) {
+        userPrompt += " in " + language;
+    }
+
     var formData = new FormData();
     formData.append("message", userPrompt);
-    formData.append("language", language);
-  
+
     var xhr = new XMLHttpRequest();
-  
+
     xhr.open("POST", "/process/prompt/", true);
-  
+
     // Set the CSRF token in the request headers
     xhr.setRequestHeader("X-CSRFToken", getCSRFToken());
-  
+
     // Define the callback function when the request completes
     xhr.onload = function () {
-      if (xhr.status === 200) {
-        console.log(xhr.responseText);
-        window.location.reload();
-      } else {
-        console.error("Error:", xhr.status);
-      }
+        if (xhr.status === 200) {
+            console.log(xhr.responseText);
+            window.location.reload();
+        } else {
+            console.error("Error:", xhr.status);
+        }
     };
-  
+
     // Send the request with the form data
     xhr.send(formData);
-  }
+}
+
   
-  
-  // Function to get the CSRF token from the HTML form
-  function getCSRFToken() {
-    var csrfTokenElement = document.getElementsByName("csrfmiddlewaretoken")[0];
-    return csrfTokenElement.value;
-  }
+// Function to get the CSRF token from the HTML form
+function getCSRFToken() {
+  var csrfTokenElement = document.getElementsByName("csrfmiddlewaretoken")[0];
+  return csrfTokenElement.value;
+}
   

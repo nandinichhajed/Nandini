@@ -38,14 +38,9 @@ class HotelNameView(APIView):
 
 def processPrompt(request):
     if request.method == 'POST':
-        
         user_prompt = request.POST.get('message', '')
         print(user_prompt)
-        
-        language = request.POST.get('language', '')
 
-        user_prompt += f" in {language}"
-            
         messages.append({"role": "user", "content": f"{user_prompt}"})
 
         response = openai.ChatCompletion.create(
@@ -65,10 +60,10 @@ def processPrompt(request):
         )
         print(messages)
         return JsonResponse({'response': assistant_response})
-    
-    # latest_response = Promts.objects.order_by('-id').first()  # Get the latest Promts object
-    contxt = Promts.objects.all()  # Retrieve all Promts objects from the database
+
+    contxt = Promts.objects.all()
     return render(request, 'prompt.html', {'contxt': contxt})
+
 
 
 def render_index(request):
