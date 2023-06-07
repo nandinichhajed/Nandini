@@ -19,7 +19,7 @@ function executePrompt(cardId) {
         .then(data => {
             // Handle the response from the API
             console.log(data.response);
-            window.location.href = "process/";
+            // No redirection here
         })
         .catch(error => {
             console.error('Error:', error);
@@ -58,19 +58,18 @@ function sendDataToProcessPrompt(language) {
     xhr.send(formData);
 }
 
-  
 // Function to get the CSRF token from the HTML form
 function getCSRFToken() {
-  var csrfTokenElement = document.getElementsByName("csrfmiddlewaretoken")[0];
-  return csrfTokenElement.value;
+    var csrfTokenElement = document.getElementsByName("csrfmiddlewaretoken")[0];
+    return csrfTokenElement.value;
 }
-
 
 document.addEventListener('DOMContentLoaded', function(){
 
-    document.querySelector('#submitBtn').addEventListener('click', () => chat_ajax());
+    document.querySelector('#submitBtn').addEventListener('click', () => sendDataToProcessPrompt());
 
 });
+
 
 function chat_ajax(){
 
